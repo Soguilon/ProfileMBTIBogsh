@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDM Portfolio</title>
+    <title>EDM Tasks Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,13 +13,14 @@
             text-align: center;
             padding: 50px;
             margin: 0;
-            height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             padding: 30px;
             border: 3px solid #00ffff;
             border-radius: 15px;
@@ -30,61 +31,60 @@
         .container:hover {
             box-shadow: 0px 0px 30px #00ffff;
         }
-        h1 {
-            font-size: 32px;
+        h1, h2, h3 {
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
         }
-        p {
+        p, li {
             font-size: 18px;
             line-height: 1.5;
         }
-        .name-list {
-            margin-top: 20px;
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #00ffff;
+            box-shadow: 0px 0px 15px #00ffff;
+            margin-bottom: 15px;
         }
         .name-list a {
             display: inline-block;
             color: #00ffff;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 18px;
             margin: 10px;
             padding: 10px 20px;
             border: 2px solid #00ffff;
             border-radius: 8px;
             transition: all 0.3s ease-in-out;
-            position: relative;
-            overflow: hidden;
-        }
-        .name-list a::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #ffaa00;
-            top: 0;
-            left: -100%;
-            transition: all 0.3s ease-in-out;
-            opacity: 0.5;
         }
         .name-list a:hover {
             color: #090979;
             background: #00ffff;
             box-shadow: 0px 0px 15px #00ffff;
         }
-        .name-list a:hover::before {
-            left: 0;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>EDM Portfolio</h1>
+        <h1>EDM Tasks Portfolio</h1>
         <p>This portfolio documents the step-by-step process and screenshots of the tasks completed in the subject EDM.</p>
+        
+        <h2>About Me</h2>
+        <img src="https://github.com/user-attachments/assets/e904701f-1061-486d-99ce-27003d63a0f4" alt="Carl Asnef">
+        <p>Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
+        
+        <h2>Education</h2>
+        <ul>
+            <li><strong>College:</strong> Currently studying at City College of Angeles</li>
+            <li><strong>High School:</strong> Graduated from Angeles City Science High School</li>
+        </ul>
+        
+        <h2>My Projects</h2>
         <div class="name-list">
-            <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/">Midterm Lab Task 1</a>
-            <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/">Midterm Lab Task 2</a>
-            <a href="https://soguilon.github.io/Midterm-Lab-Task-3/">Midterm Lab Task 3</a>
+            <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/">Midterm Lab Task 1: Data Cleaning and Preparation using Excel</a>
+            <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a>
+            <a href="https://soguilon.github.io/Midterm-Lab-Task-3/">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a>
         </div>
     </div>
 </body>
