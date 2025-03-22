@@ -3,41 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTI Portfolio</title>
+    <title>EDM Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #0a0a0a;
-            color: #00aaff;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #020024, #090979, #00d4ff);
+            color: #00ffff;
+            font-family: 'Orbitron', sans-serif;
             text-align: center;
             padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .container {
             max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            border: 2px solid #00aaff;
-            border-radius: 10px;
-            background: rgba(0, 10, 30, 0.8);
-            box-shadow: 0px 0px 15px #00aaff;
+            padding: 30px;
+            border: 3px solid #00ffff;
+            border-radius: 15px;
+            background: rgba(0, 10, 30, 0.9);
+            box-shadow: 0px 0px 20px #00ffff;
+            transition: 0.3s;
+        }
+        .container:hover {
+            box-shadow: 0px 0px 30px #00ffff;
         }
         h1 {
-            font-size: 28px;
+            font-size: 32px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
         p {
             font-size: 18px;
+            line-height: 1.5;
+        }
+        .name-list {
+            margin-top: 20px;
         }
         .name-list a {
-            display: block;
+            display: inline-block;
             color: #00ffff;
             text-decoration: none;
             font-size: 20px;
             margin: 10px;
-            transition: 0.3s;
+            padding: 10px 20px;
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .name-list a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ffaa00;
+            top: 0;
+            left: -100%;
+            transition: all 0.3s ease-in-out;
+            opacity: 0.5;
         }
         .name-list a:hover {
-            color: #ffaa00;
+            color: #090979;
+            background: #00ffff;
+            box-shadow: 0px 0px 15px #00ffff;
+        }
+        .name-list a:hover::before {
+            left: 0;
         }
     </style>
 </head>
