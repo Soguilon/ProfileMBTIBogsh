@@ -11,43 +11,33 @@
             font-family: Arial, sans-serif;
             text-align: left;
             padding: 50px;
-            position: relative;
-            overflow: hidden;
         }
         .container {
             max-width: 800px;
             margin: auto;
             padding: 20px;
-            border: 2px solid #6abce2;
+            border: 2px solid #abe14d;
             border-radius: 10px;
-            background: rgba(10, 30, 10, 0.9);
-            box-shadow: 0px 0px 15px #6abce2;
+            background: rgba(10, 30, 10, 0.8);
+            box-shadow: 0px 0px 15px #abe14d;
         }
-        h1, h2 {
-            color: #6abce2;
+        h1 {
+            font-size: 28px;
+            text-transform: uppercase;
         }
-        p, li {
+        p {
             font-size: 18px;
         }
-        a {
+        .name-list a {
+            display: block;
             color: #6abce2;
             text-decoration: none;
+            font-size: 20px;
+            margin: 10px;
             transition: 0.3s;
         }
-        a:hover {
+        .name-list a:hover {
             color: #ffaa00;
-        }
-        .chibi-cat {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: url('https://i.imgur.com/XY1cG5F.gif') no-repeat center/contain;
-            animation: dance 3s infinite alternate ease-in-out;
-        }
-        @keyframes dance {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-            100% { transform: translateY(0px) rotate(-10deg); }
         }
     </style>
 </head>
@@ -55,36 +45,23 @@
     <div class="container">
         <h1>EDM Tasks Portfolio</h1>
         <p>This portfolio documents the step-by-step process and screenshots of the tasks completed in the subject EDM.</p>
-
-        <h2>About Me</h2>
-        <img src="https://github.com/user-attachments/assets/e904701f-1061-486d-99ce-27003d63a0f4" width="150" alt="Profile Image">
+        
+        <h2>About Me:</h2>
+        <img src="https://github.com/user-attachments/assets/e904701f-1061-486d-99ce-27003d63a0f4" alt="Profile Image" style="width: 150px; border-radius: 10px;">
         <p>Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
-
-        <h2>Education</h2>
+        
+        <h2>Education:</h2>
         <ul>
-            <li>College: Currently Studying at City College of Angeles</li>
-            <li>High School: Graduated From Angeles City Science High School</li>
+            <li>College: Currently studying at City College of Angeles.</li>
+            <li>High School: Graduated from Angeles City Science High School.</li>
         </ul>
 
-        <h2>My Projects</h2>
-        <ul>
-            <li><a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/">Midterm Lab Task 1: Data Cleaning and Preparation using Excel</a></li>
-            <li><a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a></li>
-            <li><a href="https://soguilon.github.io/Midterm-Lab-Task-3/">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a></li>
-        </ul>
+        <h2>My Projects:</h2>
+        <div class="name-list">
+            <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/">Midterm Lab Task 1: Data Cleaning and Preparation using Excel</a>
+            <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a>
+            <a href="https://soguilon.github.io/Midterm-Lab-Task-3/">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a>
+        </div>
     </div>
-    
-    <script>
-        function createChibiCat() {
-            const cat = document.createElement("div");
-            cat.classList.add("chibi-cat");
-            document.body.appendChild(cat);
-            cat.style.left = Math.random() * window.innerWidth + "px";
-            cat.style.top = Math.random() * window.innerHeight + "px";
-        }
-        for (let i = 0; i < 10; i++) {
-            createChibiCat();
-        }
-    </script>
 </body>
 </html>
