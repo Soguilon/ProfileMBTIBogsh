@@ -10,84 +10,84 @@
             color: #abe14d;
             font-family: Arial, sans-serif;
             padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
         }
         .container {
-            width: 48%;
-            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .section {
             border: 2px solid #abe14d;
             border-radius: 10px;
-            background: rgba(26, 26, 26, 0.8);
-            box-shadow: 0px 0px 15px #abe14d;
+            padding: 20px;
             margin-bottom: 20px;
+            background: rgba(26, 26, 26, 0.9);
+            box-shadow: 0px 0px 15px #abe14d;
             position: relative;
         }
-        .about {
-            width: 60%;
-            float: left;
-        }
-        .projects {
-            width: 35%;
-            float: right;
-        }
-        h1, h2 {
+        .section::before {
+            content: '01010101 1100101 1010101 0011101';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 12px;
             color: #6abce2;
+            opacity: 0.6;
         }
-        a {
+        .section h2 {
+            color: #6abce2;
+            border-bottom: 2px solid #6abce2;
+            padding-bottom: 5px;
+        }
+        .section a {
             color: #6abce2;
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: bold;
         }
-        a:hover {
-            color: #ffcc00;
-        }
-        .design-stripes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #abe14d 0%, transparent 100%);
+        .section a:hover {
+            color: #abe14d;
         }
         .circuit {
             position: absolute;
-            bottom: 0;
-            right: 10px;
-            width: 50px;
-            height: 50px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Circuit_board.svg/512px-Circuit_board.svg.png') no-repeat center;
-            background-size: cover;
-            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/circuit-board.png');
+            opacity: 0.1;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container about">
-        <div class="design-stripes"></div>
-        <h1>About Me</h1>
-        <img src="https://github.com/user-attachments/assets/e904701f-1061-486d-99ce-27003d63a0f4" alt="Profile Image" width="100%">
-        <p>Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
-    </div>
-    
-    <div class="container education">
-        <div class="design-stripes"></div>
-        <h2>Education</h2>
-        <ul>
-            <li>College: Currently Studying at City College of Angeles</li>
-            <li>High School: Graduated From Angeles City Science High School</li>
-        </ul>
-    </div>
-    
-    <div class="container projects">
-        <div class="design-stripes"></div>
-        <h2>My Projects</h2>
-        <ul>
-            <li><a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/">Midterm Lab Task 1: Data Cleaning and Preparation using Excel</a></li>
-            <li><a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a></li>
-            <li><a href="https://soguilon.github.io/Midterm-Lab-Task-3/">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a></li>
-        </ul>
+    <div class="container">
+        <div class="section">
+            <h2>EDM Tasks Portfolio</h2>
+            <p>This portfolio documents the step-by-step process and screenshots of the tasks completed in the subject EDM.</p>
+            <div class="circuit"></div>
+        </div>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <img src="https://github.com/user-attachments/assets/e904701f-1061-486d-99ce-27003d63a0f4" alt="Profile Image" style="width: 100px; border-radius: 50%;">
+            <p>Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
+            <div class="circuit"></div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <p>College: Currently studying at City College of Angeles.</p>
+            <p>High School: Graduated from Angeles City Science High School.</p>
+            <div class="circuit"></div>
+        </div>
+
+        <div class="section">
+            <h2>My Projects</h2>
+            <ul>
+                <li><a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/">Midterm Lab Task 1: Data Cleaning and Preparation using Excel</a></li>
+                <li><a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a></li>
+                <li><a href="https://soguilon.github.io/Midterm-Lab-Task-3/">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a></li>
+            </ul>
+            <div class="circuit"></div>
+        </div>
     </div>
 </body>
 </html>
