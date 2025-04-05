@@ -48,7 +48,7 @@
       box-shadow: 0 0 20px #00bfff;
     }
 
-    h2 {
+    h2, p, li {
       color: #00bfff;
       text-shadow: 0 0 5px #00bfff;
       border-bottom: 2px solid #00bfff;
@@ -171,6 +171,8 @@
     const colorPicker = document.getElementById('colorPicker');
     const header = document.querySelector('header');
     const h2Elements = document.querySelectorAll('h2');
+    const pElements = document.querySelectorAll('p');
+    const liElements = document.querySelectorAll('li');
     const links = document.querySelectorAll('.project-links a');
     const aboutMeImage = document.querySelector('.about-me img');
     const sectionElements = document.querySelectorAll('section');
@@ -187,6 +189,16 @@
       h2Elements.forEach(h2 => {
         h2.style.color = newColor;
         h2.style.textShadow = `0 0 5px ${newColor}, 0 0 10px ${newColor}`;
+      });
+
+      pElements.forEach(p => {
+        p.style.color = newColor;
+        p.style.textShadow = `0 0 5px ${newColor}, 0 0 10px ${newColor}`;
+      });
+
+      liElements.forEach(li => {
+        li.style.color = newColor;
+        li.style.textShadow = `0 0 5px ${newColor}, 0 0 10px ${newColor}`;
       });
 
       links.forEach(link => {
