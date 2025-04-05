@@ -106,6 +106,30 @@
       from { box-shadow: 0 0 10px #00bfff; }
       to { box-shadow: 0 0 25px #00bfff, 0 0 50px #00bfff; }
     }
+
+    .color-picker-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .color-picker-container label {
+      font-size: 1rem;
+      margin-right: 10px;
+      color: #00bfff;
+    }
+
+    .color-picker-container input {
+      width: 100px;
+      height: 20px;
+      border-radius: 5px;
+      border: 1px solid #00bfff;
+    }
+
+    .color-picker-container p {
+      color: #00bfff;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -135,5 +159,47 @@
     <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/" target="_blank">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a>
     <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a>
   </section>
+
+  <!-- RGB Color Picker Section -->
+  <section class="color-picker-container">
+    <label for="colorPicker">Choose Neon Color:</label>
+    <input type="color" id="colorPicker" value="#00bfff">
+    <p>Adjust the color for the glowing elements!</p>
+  </section>
+
+  <script>
+    const colorPicker = document.getElementById('colorPicker');
+    const header = document.querySelector('header');
+    const h2Elements = document.querySelectorAll('h2');
+    const links = document.querySelectorAll('.project-links a');
+    const aboutMeImage = document.querySelector('.about-me img');
+    const sectionElements = document.querySelectorAll('section');
+
+    // Function to change the neon color dynamically
+    colorPicker.addEventListener('input', function() {
+      const newColor = colorPicker.value;
+
+      // Apply the selected color to various elements
+      header.style.color = newColor;
+      header.style.textShadow = `0 0 10px ${newColor}, 0 0 20px ${newColor}`;
+
+      h2Elements.forEach(h2 => {
+        h2.style.color = newColor;
+        h2.style.textShadow = `0 0 5px ${newColor}, 0 0 10px ${newColor}`;
+      });
+
+      links.forEach(link => {
+        link.style.border = `1px solid ${newColor}`;
+        link.style.boxShadow = `0 0 5px ${newColor}`;
+      });
+
+      aboutMeImage.style.border = `2px solid ${newColor}`;
+      aboutMeImage.style.boxShadow = `0 0 10px ${newColor}`;
+
+      sectionElements.forEach(section => {
+        section.style.border = `2px solid ${newColor}`;
+      });
+    });
+  </script>
 </body>
 </html>
