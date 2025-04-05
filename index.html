@@ -11,7 +11,7 @@
       margin: 0;
       font-family: 'Orbitron', sans-serif;
       background: linear-gradient(120deg, #000 30%, #020f1f 70%);
-      color: #00bfff;
+      color: white;
       overflow-x: hidden;
       animation: bgShift 15s ease-in-out infinite alternate;
       transition: background 2s ease-in-out;
@@ -27,10 +27,10 @@
       padding: 20px;
       text-align: center;
       font-size: 2rem;
-      color: #00bfff;
-      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+      color: white;
+      text-shadow: 0 0 10px white, 0 0 20px white;
       animation: neonGlow 2s infinite alternate;
-      box-shadow: 0 0 15px #00bfff;
+      box-shadow: 0 0 15px white;
     }
 
     section {
@@ -45,13 +45,13 @@
 
     section:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px #00bfff;
+      box-shadow: 0 0 20px white;
     }
 
     h2, p, li {
-      color: #00bfff;
-      text-shadow: 0 0 5px #00bfff;
-      border-bottom: 2px solid #00bfff;
+      color: white;
+      text-shadow: 0 0 5px white;
+      border-bottom: 2px solid white;
       padding-bottom: 5px;
       animation: glowPulse 2s infinite alternate;
     }
@@ -60,13 +60,13 @@
       width: 150px;
       height: 150px;
       border-radius: 10px;
-      border: 2px solid #00bfff;
-      box-shadow: 0 0 10px #00bfff;
+      border: 2px solid white;
+      box-shadow: 0 0 10px white;
       animation: floatImage 4s ease-in-out infinite;
     }
 
     .project-links a {
-      color: #00ffff;
+      color: white;
       text-decoration: none;
       display: block;
       margin-bottom: 10px;
@@ -74,21 +74,21 @@
       background: #111;
       padding: 10px;
       border-radius: 5px;
-      border: 1px solid #00bfff;
-      box-shadow: 0 0 5px #00bfff;
+      border: 1px solid white;
+      box-shadow: 0 0 5px white;
       animation: glowPulse 3s infinite alternate;
     }
 
     .project-links a:hover {
-      background-color: #00bfff;
+      background-color: white;
       color: #000;
-      box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
+      box-shadow: 0 0 15px #ffffff, 0 0 25px #ffffff;
       transform: scale(1.05);
     }
 
     @keyframes glowPulse {
-      0% { text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff; }
-      100% { text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff; }
+      0% { text-shadow: 0 0 5px white, 0 0 10px white; }
+      100% { text-shadow: 0 0 20px white, 0 0 30px white; }
     }
 
     @keyframes floatImage {
@@ -103,8 +103,8 @@
     }
 
     @keyframes neonGlow {
-      from { box-shadow: 0 0 10px #00bfff; }
-      to { box-shadow: 0 0 25px #00bfff, 0 0 50px #00bfff; }
+      from { box-shadow: 0 0 10px white; }
+      to { box-shadow: 0 0 25px white, 0 0 50px white; }
     }
 
     .color-picker-container {
@@ -116,18 +116,18 @@
     .color-picker-container label {
       font-size: 1rem;
       margin-right: 10px;
-      color: #00bfff;
+      color: white;
     }
 
     .color-picker-container input {
       width: 100px;
       height: 20px;
       border-radius: 5px;
-      border: 1px solid #00bfff;
+      border: 1px solid white;
     }
 
     .color-picker-container p {
-      color: #00bfff;
+      color: white;
       text-align: center;
     }
   </style>
@@ -163,7 +163,7 @@
   <!-- RGB Color Picker Section -->
   <section class="color-picker-container">
     <label for="colorPicker">Choose Neon Color:</label>
-    <input type="color" id="colorPicker" value="#00bfff">
+    <input type="color" id="colorPicker" value="#ffffff">
     <p>Adjust the color for the glowing elements!</p>
   </section>
 
