@@ -14,6 +14,7 @@
       color: #00bfff;
       overflow-x: hidden;
       animation: bgShift 15s ease-in-out infinite alternate;
+      transition: background 2s ease-in-out;
     }
 
     @keyframes bgShift {
@@ -22,20 +23,29 @@
     }
 
     header {
-      background: #111;
+      background: rgba(0, 0, 0, 0.8);
       padding: 20px;
       text-align: center;
       font-size: 2rem;
       color: #00bfff;
       text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
       animation: neonGlow 2s infinite alternate;
+      box-shadow: 0 0 15px #00bfff;
     }
 
     section {
-      padding: 20px;
+      padding: 30px 20px;
       max-width: 900px;
       margin: auto;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease-in-out;
       animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    section:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00bfff;
     }
 
     h2 {
@@ -73,6 +83,18 @@
       background-color: #00bfff;
       color: #000;
       box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
+      transform: scale(1.05);
+    }
+
+    .edm-theme {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #ff00ff;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 10px;
+      animation: edmPulse 2s infinite alternate;
     }
 
     @keyframes glowPulse {
@@ -95,6 +117,11 @@
       from { box-shadow: 0 0 10px #00bfff; }
       to { box-shadow: 0 0 25px #00bfff, 0 0 50px #00bfff; }
     }
+
+    @keyframes edmPulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -106,7 +133,7 @@
 
   <section class="about-me">
     <h2>About Me</h2>
-    <img src="https://postimg.cc/bDF7nQHt" alt="Profile Picture (150x150)">
+    <img src="https://postimg.cc/bDF7nQHt" alt="Profile Picture">
   </section>
 
   <section>
@@ -122,6 +149,10 @@
     <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/" target="_blank">Midterm Lab Task 1: Data Cleaning and Preparation using Excel</a>
     <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/" target="_blank">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a>
     <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a>
+  </section>
+
+  <section class="edm-theme">
+    <p>Feel the Beat, EDM Style!</p>
   </section>
 </body>
 </html>
