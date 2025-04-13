@@ -1,154 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EDM-Tasks-Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(120deg, #000 30%, #020f1f 70%);
-      color: #00bfff;
-      overflow-x: hidden;
-      animation: bgShift 15s ease-in-out infinite alternate;
-      transition: background 2s ease-in-out;
+    :root {
+      --neon: #00ffff;
+      --bg: #000;
+      --light-bg: #111;
+      --text: #fff;
     }
 
-    @keyframes bgShift {
-      0% { background-position: left top; }
-      100% { background-position: right bottom; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle, var(--bg), #000);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .cursor {
+      width: 15px;
+      height: 15px;
+      border: 2px solid var(--neon);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 1000;
+      box-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
     }
 
     header {
-      background: rgba(0, 0, 0, 0.8);
       padding: 20px;
       text-align: center;
       font-size: 2rem;
-      color: #00bfff;
-      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
-      animation: neonGlow 2s infinite alternate;
-      box-shadow: 0 0 15px #00bfff;
+      color: var(--neon);
+      text-shadow: 0 0 15px var(--neon);
+      box-shadow: 0 2px 15px var(--neon);
+      background-color: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: transparent;
+      border: 2px solid var(--neon);
+      color: var(--neon);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      text-shadow: 0 0 6px var(--neon);
+      transition: 0.3s;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--bg);
+      border-top: 2px solid var(--neon);
+      border-bottom: 2px solid var(--neon);
+      box-shadow: 0 0 15px var(--neon);
+    }
+
+    nav a {
+      color: var(--text);
+      padding: 15px 20px;
+      text-decoration: none;
+      text-shadow: 0 0 5px var(--neon);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--neon);
+      background-color: var(--light-bg);
+      box-shadow: inset 0 0 10px var(--neon);
     }
 
     section {
-      padding: 30px 20px;
+      padding: 40px 20px;
       max-width: 900px;
       margin: auto;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s ease-in-out;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    section:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #00bfff;
+      background-color: rgba(0, 0, 0, 0.6);
+      margin-bottom: 30px;
+      border-left: 4px solid var(--neon);
+      border-radius: 12px;
+      box-shadow: 0 0 15px var(--neon);
+      position: relative;
     }
 
     h2 {
-      color: #00bfff;
-      text-shadow: 0 0 5px #00bfff;
-      border-bottom: 2px solid #00bfff;
-      padding-bottom: 5px;
-      animation: glowPulse 2s infinite alternate;
+      color: var(--neon);
+      text-shadow: 0 0 15px var(--neon);
+      border-bottom: 2px solid var(--neon);
+      padding-bottom: 10px;
     }
 
-    .about-me img {
+    img {
       width: 150px;
       height: 150px;
-      border-radius: 10px;
-      border: 2px solid #00bfff;
-      box-shadow: 0 0 10px #00bfff;
-      animation: floatImage 4s ease-in-out infinite;
+      border-radius: 15px;
+      border: 2px solid var(--neon);
+      box-shadow: 0 0 20px var(--neon);
+      animation: float 3s ease-in-out infinite;
+      display: block;
+      margin: 20px auto;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .project-links a {
-      color: #00ffff;
+      color: var(--neon);
       text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
+      display: inline-block;
+      margin: 12px;
+      padding: 12px 20px;
+      border: 2px solid var(--neon);
+      border-radius: 10px;
+      background-color: var(--bg);
+      text-shadow: 0 0 8px var(--neon);
+      box-shadow: 0 0 15px var(--neon);
       transition: all 0.3s ease;
-      background: #111;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #00bfff;
-      box-shadow: 0 0 5px #00bfff;
-      animation: glowPulse 3s infinite alternate;
     }
 
     .project-links a:hover {
-      background-color: #00bfff;
+      background-color: var(--neon);
       color: #000;
-      box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
       transform: scale(1.05);
     }
 
-    @keyframes glowPulse {
-      0% { text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff; }
-      100% { text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff; }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid var(--neon);
+      white-space: nowrap;
+      margin: 20px auto;
+      width: 100%;
+      color: var(--neon);
+      text-shadow: 0 0 10px var(--neon);
+      font-size: 1.2rem;
+      max-width: 600px;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
     }
 
-    @keyframes floatImage {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
     }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--neon); }
     }
 
-    @keyframes neonGlow {
-      from { box-shadow: 0 0 10px #00bfff; }
-      to { box-shadow: 0 0 25px #00bfff, 0 0 50px #00bfff; }
+    .glitch {
+      color: var(--neon);
+      position: relative;
+    }
+
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .glitch::before {
+      animation: glitchTop 1s infinite linear alternate-reverse;
+      color: #0ff;
+    }
+
+    .glitch::after {
+      animation: glitchBottom 1s infinite linear alternate-reverse;
+      color: #fff;
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+      100% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 2px); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(60% 0 0 0); transform: translate(2px, 1px); }
+      100% { clip-path: inset(30% 0 40% 0); transform: translate(-1px, -1px); }
+    }
+
+    @media screen and (max-width: 600px) {
+      .typewriter {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Background Music Embed -->
-  <iframe width="0" height="0" src="https://www.youtube.com/embed/Efl_FXgnFH0?autoplay=1&loop=1&playlist=Efl_FXgnFH0&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-  <header>EDM-Tasks-Portfolio</header>
+<div class="cursor" id="cursor"></div>
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
 
-  <section>
-    <p>This portfolio documents the step-by-step process and screenshots of the tasks completed in the subject EDM.</p>
-    <a href="https://github.com/Soguilon/EDM-Tasks-Portfolio" target="_blank">Go to Soguilon's Github</a>
-  </section>
+<header class="glitch" data-text="EDM-Tasks-Portfolio">EDM-Tasks-Portfolio</header>
 
-  <section class="about-me">
-    <h2>About Me</h2>
-    <img src="https://github.com/user-attachments/assets/9a3f15b3-c8ad-49f8-9366-5c7ac62bdc5c" alt="Carl Asnef">
-    <p>Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
-  </section>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#projects">My Projects</a>
+</nav>
 
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>College:</strong> Currently Studying at City College of Angeles</li>
-      <li><strong>High School:</strong> Graduated From Angeles City Science High School</li>
-    </ul>
-  </section>
+<section id="home">
+  <div class="typewriter">Welcome to Carl Asnef’s EDM Portfolio ✨</div>
+  <p style="text-shadow: 0 0 8px var(--neon);">This portfolio documents the step-by-step process and screenshots of the tasks completed in the subject EDM.</p>
+  <a href="https://github.com/Soguilon/EDM-Tasks-Portfolio" target="_blank" style="color:var(--neon); text-shadow: 0 0 6px var(--neon);">Go to Soguilon's Github</a>
+</section>
 
-  <section class="project-links">
-    <h2>My Midterm Projects</h2>
-    <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/" target="_blank">Midterm Lab Task 1: Data Cleaning and Preparation using Excel</a>
-    <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/" target="_blank">Midterm Lab Task 2: Data Cleaning and Preparation using Power Query</a>
-    <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3: Creating PIVOT TABLE and DASHBOARD</a>
-    <h2>My Final Projects</h2>
-    <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Finals Lab Task 1: Creating a Database Using MySQL Workbench</a>
-    <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Finals Lab Task 2: Transforming ER Model to Relational Tables</a>
-    <a href="https://soguilon.github.io/Finals-Lab-Task-3/" target="_blank">Finals Lab Task 3: Table Manipulation</a>
-  </section>
+<section id="about">
+  <h2>About Me</h2>
+  <img src="https://github.com/user-attachments/assets/9a3f15b3-c8ad-49f8-9366-5c7ac62bdc5c" alt="Carl Asnef" />
+  <p style="text-shadow: 0 0 6px var(--neon);">Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
+  <ul>
+    <li style="text-shadow: 0 0 5px var(--neon);"><strong>College:</strong> City College of Angeles</li>
+    <li style="text-shadow: 0 0 5px var(--neon);"><strong>High School:</strong> Angeles City Science High School</li>
+  </ul>
+</section>
 
-  <!-- Contact Me Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p><strong>Phone:</strong> 0956 576 2475</p>
-    <p><strong>Email:</strong> <a href="mailto:csoguilon24-0063@cca.edu.ph">csoguilon24-0063@cca.edu.ph</a></p>
-  </section>
+<section id="projects" class="project-links">
+  <h2>My Midterm Projects</h2>
+  <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/" target="_blank">Midterm Lab Task 1</a>
+  <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/" target="_blank">Midterm Lab Task 2</a>
+  <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3</a>
+
+  <h2>My Final Projects</h2>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Finals Lab Task 1</a>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Finals Lab Task 2</a>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-3/" target="_blank">Finals Lab Task 3</a>
+</section>
+
+<script>
+  // Cursor glow
+  const cursor = document.getElementById("cursor");
+  document.addEventListener("mousemove", e => {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+  });
+
+  // Smooth scroll
+  document.querySelectorAll("nav a").forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      e.preventDefault();
+      document.querySelector(anchor.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Toggle dark mode (not much change, but placeholder for future)
+  function toggleDarkMode() {
+    document.body.classList.toggle("light");
+    if (document.body.classList.contains("light")) {
+      document.documentElement.style.setProperty("--bg", "#f0f0f0");
+      document.documentElement.style.setProperty("--text", "#000");
+    } else {
+      document.documentElement.style.setProperty("--bg", "#000");
+      document.documentElement.style.setProperty("--text", "#fff");
+    }
+  }
+</script>
+
 </body>
 </html>
