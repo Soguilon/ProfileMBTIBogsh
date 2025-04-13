@@ -111,68 +111,119 @@
       padding-bottom: 10px;
     }
 
-    .game-container {
-      display: none;
-      width: 100%;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background: #000;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      flex-direction: column;
+    img {
+      width: 180px; /* Increased image size */
+      height: 180px; /* Increased image size */
+      border-radius: 15px;
+      border: 2px solid var(--neon);
+      box-shadow: 0 0 20px var(--neon);
+      animation: float 3s ease-in-out infinite;
+      display: block;
+      margin: 20px auto;
+      transition: transform 0.3s ease;
     }
 
-    .skip-btn {
-      background: var(--neon);
-      color: #000;
-      padding: 10px 20px;
+    img:hover {
+      transform: scale(1.1) rotateY(20deg);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .project-links a {
+      color: var(--neon);
+      text-decoration: none;
+      display: inline-block;
+      margin: 15px; /* Increased margin */
+      padding: 15px 25px; /* Increased padding */
       border: 2px solid var(--neon);
       border-radius: 10px;
-      font-size: 1.2rem;
-      margin-top: 20px;
-      cursor: pointer;
-      text-shadow: 0 0 6px var(--neon);
+      background-color: var(--bg);
+      text-shadow: 0 0 8px var(--neon);
+      box-shadow: 0 0 20px var(--neon); /* Expanded glow */
       transition: all 0.3s ease;
     }
 
-    .skip-btn:hover {
-      background-color: #000;
-      color: var(--neon);
-      box-shadow: inset 0 0 10px var(--neon);
+    .project-links a:hover {
+      background-color: var(--neon);
+      color: #000;
+      transform: scale(1.05);
     }
 
-    .game {
-      width: 400px;
-      height: 300px;
-      background: #444;
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid var(--neon);
+      white-space: nowrap;
+      margin: 20px auto;
+      width: 100%;
+      color: var(--neon);
+      text-shadow: 0 0 10px var(--neon);
+      font-size: 1.5rem; /* Increased font size */
+      max-width: 700px; /* Increased max-width */
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--neon); }
+    }
+
+    .glitch {
+      color: var(--neon);
       position: relative;
     }
 
-    .player {
-      width: 40px;
-      height: 40px;
-      background-color: var(--neon);
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
       position: absolute;
-      bottom: 0;
-      left: 50px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
     }
 
-    .obstacle {
-      width: 40px;
-      height: 40px;
-      background-color: #f00;
-      position: absolute;
-      top: 0;
-      right: 0;
-      animation: moveObstacle 2s infinite linear;
+    .glitch::before {
+      animation: glitchTop 1s infinite linear alternate-reverse;
+      color: #0ff;
     }
 
-    @keyframes moveObstacle {
-      0% { right: 0; }
-      100% { right: 100%; }
+    .glitch::after {
+      animation: glitchBottom 1s infinite linear alternate-reverse;
+      color: #fff;
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+      100% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 2px); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(60% 0 0 0); transform: translate(2px, 1px); }
+      100% { clip-path: inset(30% 0 40% 0); transform: translate(-1px, -1px); }
+    }
+
+    .contact-section {
+      text-align: center;
+      background-color: var(--bg);
+      padding: 40px 20px;
+    }
+
+    .contact-section a {
+      color: var(--neon);
+      text-decoration: none;
+      margin: 20px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-section a:hover {
+      text-decoration: underline;
     }
 
     @media screen and (max-width: 600px) {
@@ -192,15 +243,6 @@
 
 <div class="cursor" id="cursor"></div>
 <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
-
-<!-- Game container -->
-<div class="game-container" id="gameContainer">
-  <div class="game">
-    <div class="player" id="player"></div>
-    <div class="obstacle"></div>
-  </div>
-  <button class="skip-btn" onclick="skipGame()">Skip Game</button>
-</div>
 
 <header class="glitch" data-text="EDM-Tasks-Portfolio">EDM-Tasks-Portfolio</header>
 
@@ -236,48 +278,31 @@
    <h2>My Final Projects</h2>
   <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Final Lab Task 1</a>
   <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Final Lab Task 2</a>
-  <a href="https://soguilon.github.io/Finals-Lab-Task-3/" target="_blank">Finals Lab Task 3</a>
+  <a href="https://soguilon.github.io/Final-Lab-Task-3/" target="_blank">Final Lab Task 3</a>
+</section>
+
+<section id="education">
+  <h2>My Education</h2>
+  <p>BS in Information Systems at City College of Angeles (2024-present).</p>
+  <p>Specialization in Database Systems, focusing on design, implementation, and management.</p>
 </section>
 
 <script>
-  let cursor = document.getElementById('cursor');
+  const cursor = document.getElementById('cursor');
 
   document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.pageX - cursor.offsetWidth / 2 + 'px';
-    cursor.style.top = e.pageY - cursor.offsetHeight / 2 + 'px';
+    cursor.style.left = `${e.pageX - cursor.offsetWidth / 2}px`;
+    cursor.style.top = `${e.pageY - cursor.offsetHeight / 2}px`;
   });
 
   function toggleDarkMode() {
-    document.body.classList.toggle('dark');
-  }
-
-  // Game functionality
-  let player = document.getElementById('player');
-  let gameContainer = document.getElementById('gameContainer');
-  let skipBtn = document.querySelector('.skip-btn');
-
-  // Start game
-  window.onload = function() {
-    setTimeout(function() {
-      gameContainer.style.display = 'flex';
-    }, 1000);
-  };
-
-  // Move player on spacebar
-  document.addEventListener('keydown', (e) => {
-    if (e.key === ' ') {
-      player.style.bottom = '100px';
-      setTimeout(() => {
-        player.style.bottom = '0';
-      }, 300);
+    const currentBg = document.body.style.background;
+    if (currentBg === 'rgb(0, 0, 0)') {
+      document.body.style.background = 'radial-gradient(circle, var(--bg), #111)';
+    } else {
+      document.body.style.background = 'radial-gradient(circle, #111, var(--bg))';
     }
-  });
-
-  // Skip game
-  function skipGame() {
-    gameContainer.style.display = 'none';
   }
 </script>
-
 </body>
 </html>
