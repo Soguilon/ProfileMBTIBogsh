@@ -7,22 +7,47 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none;
+    }
+
+    body {
       font-family: 'Orbitron', sans-serif;
-      background-color: #000;
+      background: radial-gradient(circle, #000011, #000);
       color: #fff;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
+    canvas#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .cursor {
+      width: 15px;
+      height: 15px;
+      border: 2px solid #00f;
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 1000;
+      box-shadow: 0 0 10px #00f, 0 0 20px #00f;
+    }
+
     header {
-      background-color: #000;
       padding: 20px;
       text-align: center;
-      color: #00f;
       font-size: 2rem;
-      text-shadow: 0 0 10px #00f, 0 0 20px #00f;
-      box-shadow: 0 2px 10px #00f;
+      color: #00f;
+      text-shadow: 0 0 15px #00f;
+      box-shadow: 0 2px 15px #00f;
+      background-color: #000;
       position: sticky;
       top: 0;
       z-index: 999;
@@ -34,16 +59,16 @@
       background-color: #000;
       border-top: 2px solid #00f;
       border-bottom: 2px solid #00f;
-      box-shadow: 0 0 10px #00f;
+      box-shadow: 0 0 15px #00f;
     }
 
     nav a {
       color: #fff;
       padding: 15px 20px;
       text-decoration: none;
+      text-shadow: 0 0 5px #00f;
       font-weight: bold;
       transition: 0.3s;
-      text-shadow: 0 0 5px #00f;
     }
 
     nav a:hover {
@@ -56,16 +81,17 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
-      background-color: #111;
+      background-color: rgba(0, 0, 0, 0.6);
       margin-bottom: 30px;
       border-left: 4px solid #00f;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00f;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00f;
+      position: relative;
     }
 
     h2 {
       color: #00f;
-      text-shadow: 0 0 10px #00f;
+      text-shadow: 0 0 15px #00f;
       border-bottom: 2px solid #00f;
       padding-bottom: 10px;
     }
@@ -75,77 +101,171 @@
       height: 150px;
       border-radius: 15px;
       border: 2px solid #00f;
-      box-shadow: 0 0 15px #00f, 0 0 25px #00f;
+      box-shadow: 0 0 20px #00f;
       animation: float 3s ease-in-out infinite;
       display: block;
       margin: 20px auto;
     }
 
     @keyframes float {
-      0% { transform: translateY(0px); }
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
     }
 
     .project-links a {
       color: #00f;
       text-decoration: none;
-      display: block;
-      margin: 12px 0;
-      padding: 12px;
+      display: inline-block;
+      margin: 12px;
+      padding: 12px 20px;
       border: 2px solid #00f;
       border-radius: 10px;
       background-color: #000;
-      transition: 0.3s ease;
       text-shadow: 0 0 8px #00f;
-      box-shadow: 0 0 10px #00f;
+      box-shadow: 0 0 15px #00f;
+      transition: all 0.3s ease;
     }
 
     .project-links a:hover {
       background-color: #00f;
       color: #000;
       text-shadow: none;
+      transform: scale(1.05);
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid #00f;
+      white-space: nowrap;
+      margin: 20px auto;
+      width: 100%;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+      color: #00f;
+      text-shadow: 0 0 10px #00f;
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #00f; }
     }
 
     a:visited {
       color: #00f;
     }
+
+    @media screen and (max-width: 600px) {
+      .typewriter {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>EDM-Tasks-Portfolio</header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#projects">My Projects</a>
-  </nav>
+<canvas id="bg"></canvas>
+<div class="cursor" id="cursor"></div>
 
-  <section id="home">
-    <p style="text-shadow: 0 0 8px #00f;">This portfolio documents the step-by-step process and screenshots of the tasks completed in the subject EDM.</p>
-    <a href="https://github.com/Soguilon/EDM-Tasks-Portfolio" target="_blank" style="color:#00f; text-shadow: 0 0 6px #00f;">Go to Soguilon's Github</a>
-  </section>
+<header>EDM-Tasks-Portfolio</header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <img src="https://github.com/user-attachments/assets/9a3f15b3-c8ad-49f8-9366-5c7ac62bdc5c" alt="Carl Asnef" />
-    <p style="text-shadow: 0 0 6px #00f;">Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
-    <ul>
-      <li style="text-shadow: 0 0 5px #00f;"><strong>College:</strong> City College of Angeles</li>
-      <li style="text-shadow: 0 0 5px #00f;"><strong>High School:</strong> Angeles City Science High School</li>
-    </ul>
-  </section>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#projects">My Projects</a>
+</nav>
 
-  <section id="projects" class="project-links">
-    <h2>My Midterm Projects</h2>
-    <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/" target="_blank">Midterm Lab Task 1: Excel Data Cleaning</a>
-    <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/" target="_blank">Midterm Lab Task 2: Power Query</a>
-    <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3: Pivot Table & Dashboard</a>
+<section id="home">
+  <div class="typewriter">Welcome to Carl Asnef’s EDM Portfolio ✨</div>
+  <p style="text-shadow: 0 0 8px #00f;">This portfolio documents the step-by-step process and screenshots of the tasks completed in the subject EDM.</p>
+  <a href="https://github.com/Soguilon/EDM-Tasks-Portfolio" target="_blank" style="color:#00f; text-shadow: 0 0 6px #00f;">Go to Soguilon's Github</a>
+</section>
 
-    <h2>My Final Projects</h2>
-    <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Finals Lab Task 1: MySQL Workbench</a>
-    <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Finals Lab Task 2: ER Model to Relational Tables</a>
-    <a href="https://soguilon.github.io/Finals-Lab-Task-3/" target="_blank">Finals Lab Task 3: Table Manipulation</a>
-  </section>
+<section id="about">
+  <h2>About Me</h2>
+  <img src="https://github.com/user-attachments/assets/9a3f15b3-c8ad-49f8-9366-5c7ac62bdc5c" alt="Carl Asnef" />
+  <p style="text-shadow: 0 0 6px #00f;">Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
+  <ul>
+    <li style="text-shadow: 0 0 5px #00f;"><strong>College:</strong> City College of Angeles</li>
+    <li style="text-shadow: 0 0 5px #00f;"><strong>High School:</strong> Angeles City Science High School</li>
+  </ul>
+</section>
+
+<section id="projects" class="project-links">
+  <h2>My Midterm Projects</h2>
+  <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/" target="_blank">Midterm Lab Task 1</a>
+  <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/" target="_blank">Midterm Lab Task 2</a>
+  <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3</a>
+
+  <h2>My Final Projects</h2>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Finals Lab Task 1</a>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Finals Lab Task 2</a>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-3/" target="_blank">Finals Lab Task 3</a>
+</section>
+
+<script>
+  // Floating glowing particles
+  const canvas = document.getElementById('bg');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  for (let i = 0; i < 100; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.5,
+      dy: (Math.random() - 0.5) * 0.5
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#00f';
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function update() {
+    particles.forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+  }
+
+  function animate() {
+    draw();
+    update();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Custom neon cursor
+  const cursor = document.getElementById("cursor");
+  document.addEventListener("mousemove", e => {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+  });
+</script>
+
 </body>
 </html>
