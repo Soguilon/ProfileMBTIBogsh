@@ -43,7 +43,7 @@
     header {
       padding: 20px;
       text-align: center;
-      font-size: 2rem;
+      font-size: 3rem; /* Increased font size */
       color: var(--neon);
       text-shadow: 0 0 15px var(--neon);
       box-shadow: 0 2px 15px var(--neon);
@@ -79,7 +79,7 @@
 
     nav a {
       color: var(--text);
-      padding: 15px 20px;
+      padding: 20px 30px; /* Increased padding */
       text-decoration: none;
       text-shadow: 0 0 5px var(--neon);
       font-weight: bold;
@@ -93,14 +93,14 @@
     }
 
     section {
-      padding: 40px 20px;
-      max-width: 900px;
+      padding: 60px 30px; /* Increased padding */
+      max-width: 1100px; /* Increased max-width */
       margin: auto;
-      background-color: rgba(0, 0, 0, 0.6);
-      margin-bottom: 30px;
+      background-color: rgba(0, 0, 0, 0.7); /* Darkened the box slightly */
+      margin-bottom: 40px; /* Increased bottom margin */
       border-left: 4px solid var(--neon);
       border-radius: 12px;
-      box-shadow: 0 0 15px var(--neon);
+      box-shadow: 0 0 20px var(--neon); /* Expanded glow */
       position: relative;
     }
 
@@ -112,8 +112,8 @@
     }
 
     img {
-      width: 150px;
-      height: 150px;
+      width: 180px; /* Increased image size */
+      height: 180px; /* Increased image size */
       border-radius: 15px;
       border: 2px solid var(--neon);
       box-shadow: 0 0 20px var(--neon);
@@ -136,13 +136,13 @@
       color: var(--neon);
       text-decoration: none;
       display: inline-block;
-      margin: 12px;
-      padding: 12px 20px;
+      margin: 15px; /* Increased margin */
+      padding: 15px 25px; /* Increased padding */
       border: 2px solid var(--neon);
       border-radius: 10px;
       background-color: var(--bg);
       text-shadow: 0 0 8px var(--neon);
-      box-shadow: 0 0 15px var(--neon);
+      box-shadow: 0 0 20px var(--neon); /* Expanded glow */
       transition: all 0.3s ease;
     }
 
@@ -160,8 +160,8 @@
       width: 100%;
       color: var(--neon);
       text-shadow: 0 0 10px var(--neon);
-      font-size: 1.2rem;
-      max-width: 600px;
+      font-size: 1.5rem; /* Increased font size */
+      max-width: 700px; /* Increased max-width */
       animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
     }
 
@@ -228,7 +228,7 @@
 
     @media screen and (max-width: 600px) {
       .typewriter {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -276,35 +276,26 @@
   <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3</a>
 
    <h2>My Final Projects</h2>
-  <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Finals Lab Task 1</a>
-  <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Finals Lab Task 2</a>
-  <a href="https://soguilon.github.io/Finals-Lab-Task-3/" target="_blank">Finals Lab Task 3</a>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Final Lab Task 1</a>
+  <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Final Lab Task 2</a>
 </section>
 
+<section class="contact-section">
+  <h2>Contact Me</h2>
+  <p>Feel free to reach out if you have any questions or if you want to collaborate on any projects!</p>
+  <a href="mailto:csoguilon24-0063@cca.edu.ph" target="_blank">Email Me</a>
+</section>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  let mouseX = 0;
-  let mouseY = 0;
+  let cursor = document.getElementById('cursor');
 
-  document.addEventListener('mousemove', (event) => {
-    mouseX = event.pageX;
-    mouseY = event.pageY;
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.pageX - cursor.offsetWidth / 2 + 'px';
+    cursor.style.top = e.pageY - cursor.offsetHeight / 2 + 'px';
   });
 
-  function updateCursor() {
-    cursor.style.left = mouseX - cursor.offsetWidth / 2 + 'px';
-    cursor.style.top = mouseY - cursor.offsetHeight / 2 + 'px';
-    requestAnimationFrame(updateCursor);
-  }
-
-  updateCursor();
-
   function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle('dark');
-    const darkMode = body.classList.contains('dark');
-    document.querySelector('.dark-toggle').innerHTML = darkMode ? '☀️ Light Mode' : '🌓 Dark Mode';
+    document.body.classList.toggle('dark');
   }
 </script>
 
