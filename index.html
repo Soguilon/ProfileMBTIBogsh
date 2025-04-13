@@ -120,6 +120,11 @@
       animation: float 3s ease-in-out infinite;
       display: block;
       margin: 20px auto;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.1) rotateY(20deg);
     }
 
     @keyframes float {
@@ -203,6 +208,24 @@
       100% { clip-path: inset(30% 0 40% 0); transform: translate(-1px, -1px); }
     }
 
+    .contact-section {
+      text-align: center;
+      background-color: var(--bg);
+      padding: 40px 20px;
+    }
+
+    .contact-section a {
+      color: var(--neon);
+      text-decoration: none;
+      margin: 20px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-section a:hover {
+      text-decoration: underline;
+    }
+
     @media screen and (max-width: 600px) {
       .typewriter {
         font-size: 1rem;
@@ -211,6 +234,12 @@
   </style>
 </head>
 <body>
+
+<!-- Background music -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
 
 <div class="cursor" id="cursor"></div>
 <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
@@ -234,6 +263,7 @@
   <img src="https://github.com/user-attachments/assets/9a3f15b3-c8ad-49f8-9366-5c7ac62bdc5c" alt="Carl Asnef" />
   <p style="text-shadow: 0 0 6px var(--neon);">Hi, I am Carl Asnef B. Soguilon, a student from CCA BSIS-I102 with a passion for exploring ideas and meeting new people. As an ENTJ, I enjoy logical thinking, planning ahead, and focusing on possibilities. I aspire to thrive in the IT industry and make a meaningful impact in the field.</p>
   <ul>
+   <h2>Education</h2>  
     <li style="text-shadow: 0 0 5px var(--neon);"><strong>College:</strong> City College of Angeles</li>
     <li style="text-shadow: 0 0 5px var(--neon);"><strong>High School:</strong> Angeles City Science High School</li>
   </ul>
@@ -244,39 +274,32 @@
   <a href="https://soguilon.github.io/Midterm-Lab-Tasks-1/" target="_blank">Midterm Lab Task 1</a>
   <a href="https://soguilon.github.io/Midterm-Lab-Tasks-2/" target="_blank">Midterm Lab Task 2</a>
   <a href="https://soguilon.github.io/Midterm-Lab-Task-3/" target="_blank">Midterm Lab Task 3</a>
-
-  <h2>My Final Projects</h2>
-  <a href="https://soguilon.github.io/Finals-Lab-Task-1/" target="_blank">Finals Lab Task 1</a>
-  <a href="https://soguilon.github.io/Finals-Lab-Task-2/" target="_blank">Finals Lab Task 2</a>
-  <a href="https://soguilon.github.io/Finals-Lab-Task-3/" target="_blank">Finals Lab Task 3</a>
 </section>
 
+
 <script>
-  // Cursor glow
-  const cursor = document.getElementById("cursor");
-  document.addEventListener("mousemove", e => {
-    cursor.style.left = e.pageX + "px";
-    cursor.style.top = e.pageY + "px";
+  const cursor = document.getElementById('cursor');
+  let mouseX = 0;
+  let mouseY = 0;
+
+  document.addEventListener('mousemove', (event) => {
+    mouseX = event.pageX;
+    mouseY = event.pageY;
   });
 
-  // Smooth scroll
-  document.querySelectorAll("nav a").forEach(anchor => {
-    anchor.addEventListener("click", e => {
-      e.preventDefault();
-      document.querySelector(anchor.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
-    });
-  });
+  function updateCursor() {
+    cursor.style.left = mouseX - cursor.offsetWidth / 2 + 'px';
+    cursor.style.top = mouseY - cursor.offsetHeight / 2 + 'px';
+    requestAnimationFrame(updateCursor);
+  }
 
-  // Toggle dark mode (not much change, but placeholder for future)
+  updateCursor();
+
   function toggleDarkMode() {
-    document.body.classList.toggle("light");
-    if (document.body.classList.contains("light")) {
-      document.documentElement.style.setProperty("--bg", "#f0f0f0");
-      document.documentElement.style.setProperty("--text", "#000");
-    } else {
-      document.documentElement.style.setProperty("--bg", "#000");
-      document.documentElement.style.setProperty("--text", "#fff");
-    }
+    const body = document.body;
+    body.classList.toggle('dark');
+    const darkMode = body.classList.contains('dark');
+    document.querySelector('.dark-toggle').innerHTML = darkMode ? '☀️ Light Mode' : '🌓 Dark Mode';
   }
 </script>
 
